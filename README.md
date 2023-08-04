@@ -57,12 +57,12 @@ module.exports = {
 ```
 ### Build scripts
 
-The npm `build` script runs commands to not only build the application, but also generate all the static files to the `out` folder.
+The npm `build` script runs commands to not only build the application, but also generate all the static files to the `out` folder. （"next export" has been removed from build command for SSR）
 
 ```json
 "scripts": {
   "dev": "next dev",
-  "build": "next build && next export",
+  "build": "next build",
 },
 ```
 
