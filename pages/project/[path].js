@@ -7,13 +7,29 @@ import {
 } from '../../components/Icons';
 import Link from 'next/link';
 import { projects } from '../../utils/projectsData';
+import { useState, useEffect } from 'react';
 
 function Project({ project }) {
+
+  const [greeting, setGreeting] = useState('');
+  useEffect(() => {
+    const fetchGreeting = async () => {
+      const res = await fetch('/api/hello');
+      if (res.ok) {
+        const data = await res.json();
+        if (data.text) {
+          setGreeting(data.text);
+        }
+      }
+    };
+    fetchGreeting();
+  }, []);
+
   const Icon = projectIcons[project.id];
   return (
     <div className="project">
       <aside>
-        <h3>You can deploy...</h3>
+      <h3>{greeting} You can deploy...</h3>
         <ul>
           {projects.map((project) => {
             return (
