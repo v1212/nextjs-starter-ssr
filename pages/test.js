@@ -7,7 +7,7 @@ export async function getServerSideProps() {
   return { props: { data } };
 }
 
-export default function Test({ data }: { data: any }) {
+export default function Test({ data }) {
 
   return (
         "<h1 className={styles.title}>" +
